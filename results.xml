@@ -1,0 +1,4 @@
+²<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Test Collection" tests="1" time="0.580">
+  <testsuite name="GET Echo Test" id="ee38bbee-e711-4171-8446-c21d724f97cc" timestamp="2025-07-01T18:13:06.617Z" tests="0" failures="0" errors="0" time="0.580"/>
+</testsuites>

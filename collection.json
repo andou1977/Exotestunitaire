@@ -1,0 +1,25 @@
+{
+  "info": {
+    "name": "Test Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET Echo Test",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://postman-echo.com/get?foo=bar",
+          "host": ["postman-echo", "com"],
+          "path": ["get"],
+          "query": [
+            {
+              "key": "foo",
+              "value": "bar"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
