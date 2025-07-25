@@ -48,7 +48,9 @@ public class FirstUnitTest {
     }
 
 
-
+    public boolean estEligible(int age, boolean aRevenuStable) {
+        return age >= 18 && aRevenuStable;
+    }
 
 }
 

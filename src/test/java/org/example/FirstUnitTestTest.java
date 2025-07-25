@@ -56,4 +56,11 @@ class FirstUnitTestTest {
 assertTrue(firstUnitTest.estMotDePasseValide("manuollo1565#2343V"));
      assertFalse(firstUnitTest.estMotDePasseValide("andou"));
  }
+
+    @Test
+    void esteligible(){
+        assertTrue(firstUnitTest.estEligible(25,true));
+        assertFalse(firstUnitTest.estEligible(17,false));
+
+ }
 }
