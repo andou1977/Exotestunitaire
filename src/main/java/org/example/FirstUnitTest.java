@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.Facture.MyClient;
+
 public class FirstUnitTest {
 
     public  boolean estMajeur(int age) {
@@ -50,6 +52,14 @@ public class FirstUnitTest {
 
     public boolean estEligible(int age, boolean aRevenuStable) {
         return age >= 18 && aRevenuStable;
+    }
+
+
+    public boolean estEligible(MyClient client) {
+        return client.getAge() >= 18 &&
+                client.getRevenusAnnuel() > 20000 &&
+                client.getNombreIncidents() == 0 &&
+                client.getPays().equalsIgnoreCase("FR");
     }
 
 }
