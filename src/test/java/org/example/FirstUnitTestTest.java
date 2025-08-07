@@ -1,5 +1,9 @@
 package org.example;
 
+import org.example.Enumeration.StatutCommande;
+import org.example.Enumeration.StatutCommandeUtil;
+import org.example.Facture.Client;
+import org.example.Facture.MyClient;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +14,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class FirstUnitTestTest {
 
     FirstUnitTest firstUnitTest=new FirstUnitTest();
+
+
     @Test
     void inverser(){
 
@@ -61,6 +67,23 @@ assertTrue(firstUnitTest.estMotDePasseValide("manuollo1565#2343V"));
     void esteligible(){
         assertTrue(firstUnitTest.estEligible(25,true));
         assertFalse(firstUnitTest.estEligible(17,false));
+
+ }
+
+
+ @Test()
+ void myeligible(){
+    assertFalse(firstUnitTest.MYestEligible(new MyClient(18,25000,0,"BE")));
+assertTrue(firstUnitTest.MYestEligible(new MyClient(18,25000,0,"FR")));
+ }
+
+ @Test
+ void statuscommandeutil(){
+        assertEquals("Commande en cours",StatutCommandeUtil.getLibelle(StatutCommande.EN_COURS));
+        assertEquals("Commande expédiée",StatutCommandeUtil.getLibelle(StatutCommande.EXPEDIEE));
+        assertEquals("Commande annulée",StatutCommandeUtil.getLibelle(StatutCommande.ANNULEE));
+
+        assertThrows(IllegalArgumentException.class,()->StatutCommandeUtil.getLibelle(StatutCommande.LIVREE));
 
  }
 }
