@@ -25,7 +25,7 @@ class CompteBancaireTest {
         compteBancaire.retirer(200);
 
         Assertions.assertEquals(300,compteBancaire.getSolde());
-        Assertions.assertThrows(IllegalArgumentException.class,()->compteBancaire.retirer(50));
+        Assertions.assertThrows(IllegalArgumentException.class,()->compteBancaire.retirer(5000));
     }
 
 }

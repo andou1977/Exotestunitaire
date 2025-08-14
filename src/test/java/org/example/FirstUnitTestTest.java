@@ -1,5 +1,6 @@
 package org.example;
 
+import app.getxray.xray.junit.customjunitxml.annotations.XrayTest;
 import org.example.Enumeration.StatutCommande;
 import org.example.Enumeration.StatutCommandeUtil;
 import org.example.Facture.Client;
@@ -76,9 +77,10 @@ assertTrue(firstUnitTest.estMotDePasseValide("manuollo1565#2343V"));
     assertFalse(firstUnitTest.MYestEligible(new MyClient(18,25000,0,"BE")));
 assertTrue(firstUnitTest.MYestEligible(new MyClient(18,25000,0,"FR")));
  }
-
+    @XrayTest(key = "TEST-123")
  @Test
  void statuscommandeutil(){
+     // MYF-14 : Vérifier que la connexion fonctionne
         assertEquals("Commande en cours",StatutCommandeUtil.getLibelle(StatutCommande.EN_COURS));
         assertEquals("Commande expédiée",StatutCommandeUtil.getLibelle(StatutCommande.EXPEDIEE));
         assertEquals("Commande annulée",StatutCommandeUtil.getLibelle(StatutCommande.ANNULEE));
