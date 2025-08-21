@@ -8,6 +8,10 @@ import org.example.Facture.MyClient;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
@@ -86,6 +90,24 @@ assertTrue(firstUnitTest.MYestEligible(new MyClient(18,25000,0,"FR")));
         assertEquals("Commande annulée",StatutCommandeUtil.getLibelle(StatutCommande.ANNULEE));
 
         assertThrows(IllegalArgumentException.class,()->StatutCommandeUtil.getLibelle(StatutCommande.LIVREE));
+
+ }
+
+
+ @Test
+ void withdraw(){
+        assertThrows(IllegalArgumentException.class,()-> firstUnitTest.withdraw(-5,-7),"must be positive");
+        assertThrows(RuntimeException.class, ()-> firstUnitTest.withdraw(45,50));
+        assertEquals(5,firstUnitTest.withdraw(50,45));
+ }
+
+
+ @Test
+    void calculatetotal() {
+     assertThrows(IllegalArgumentException.class, () -> firstUnitTest.calculateTotal(Arrays.asList(), 55.65, 67.8));
+     assertEquals(6326.158799999998, firstUnitTest.calculateTotal(Arrays.asList(56.4, 67.76), 50.68, 90.43));
+
+     assertEquals(0.0, firstUnitTest.calculateTotal(Arrays.asList(0.0, 0.0), 0.0, 0.0));
 
  }
 }

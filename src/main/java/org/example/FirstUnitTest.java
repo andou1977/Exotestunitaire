@@ -2,6 +2,8 @@ package org.example;
 
 import org.example.Facture.MyClient;
 
+import java.util.List;
+
 public class FirstUnitTest {
 
     public  boolean estMajeur(int age) {
@@ -60,6 +62,29 @@ public class FirstUnitTest {
                 client.getRevenusAnnuel() > 20000 &&
                 client.getNombreIncidents() == 0 &&
                 client.getPays().equalsIgnoreCase("FR");
+    }
+
+
+
+    public double withdraw(double balance, double amount) {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Amount must be positive");
+        }
+        if (amount > balance) {
+            throw new RuntimeException("Insufficient balance");
+        }
+        return balance - amount;
+    }
+
+
+    public double calculateTotal(List<Double> items, double taxRate, double discount) {
+        if (items == null || items.isEmpty()) {
+            throw new IllegalArgumentException("Items cannot be empty");
+        }
+        double subtotal = items.stream().mapToDouble(Double::doubleValue).sum();
+        double tax = subtotal * taxRate;
+        double total = subtotal + tax - discount;
+        return total < 0 ? 0 : total;
     }
 
 }
