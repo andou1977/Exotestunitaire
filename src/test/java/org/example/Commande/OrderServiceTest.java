@@ -24,7 +24,7 @@ class OrderServiceTest {
 
         OrderService orderService = new OrderService(userChecker, productStock, paymentService, orderRepository);
         assertTrue(orderService.createOrder("User001", "Prod001"));
-        
+
     }
 
 
