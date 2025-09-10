@@ -1,11 +1,12 @@
 package org.example;
 
+import app.getxray.xray.junit.customjunitxml.annotations.XrayTest;
 import org.example.Facture.MyClient;
 
 import java.util.List;
 
 public class FirstUnitTest {
-
+    @XrayTest(key = "EN-7")
     public  boolean estMajeur(int age) {
 
         return age >= 18;
@@ -13,7 +14,7 @@ public class FirstUnitTest {
 
 
 
-
+@XrayTest(key = "EN-7")
         public static boolean isValidDate(int day, int month, int year) {
             if (year < 1900 || year > 2100) return false;
             if (month < 1 || month > 12) return false;
@@ -27,7 +28,7 @@ public class FirstUnitTest {
             return true;
         }
 
-
+    @XrayTest(key = "EN-7")
 
     public double calculerSalaireNet(double brut, double tauxCotisation) {
         if (brut < 0 || tauxCotisation < 0 || tauxCotisation > 1) {
@@ -35,28 +36,28 @@ public class FirstUnitTest {
         }
         return brut * (1 - tauxCotisation);
     }
-
+    @XrayTest(key = "EN-7")
     public double calculerTVA(double montantHT, double tauxTVA) {
         return montantHT * tauxTVA;
     }
 
 
-
+    @XrayTest(key = "EN-7")
     public boolean estEmailValide(String email) {
         return email.matches("^[\\w.-]+@[\\w.-]+\\.\\w{2,}$");
     }
 
-
+    @XrayTest(key = "EN-7")
     public boolean estMotDePasseValide(String motDePasse) {
         return motDePasse.length() >= 8 && motDePasse.matches(".*\\d.*") && motDePasse.matches(".*[A-Z].*");
     }
-
+    @XrayTest(key = "EN-7")
 
     public boolean estEligible(int age, boolean aRevenuStable) {
         return age >= 18 && aRevenuStable;
     }
 
-
+    @XrayTest(key = "EN-7")
     public boolean MYestEligible(MyClient client) {
         return client.getAge() >= 18 &&
                 client.getRevenusAnnuel() > 20000 &&
@@ -65,7 +66,7 @@ public class FirstUnitTest {
     }
 
 
-
+    @XrayTest(key = "EN-7")
     public double withdraw(double balance, double amount) {
         if (amount <= 0) {
             throw new IllegalArgumentException("Amount must be positive");
@@ -76,7 +77,7 @@ public class FirstUnitTest {
         return balance - amount;
     }
 
-
+    @XrayTest(key = "EN-7")
     public double calculateTotal(List<Double> items, double taxRate, double discount) {
         if (items == null || items.isEmpty()) {
             throw new IllegalArgumentException("Items cannot be empty");
